@@ -7,12 +7,12 @@ $(document).ready(function(){
   let page = 1;
 
   $('#bikeLocation').click(function(){
-
+    // let page = 1;
 
     let zip = $('#location').val();
     let bikeIndex = new BikeIndex();
-    let bikeListPromise = bikeIndex.findBikeByZip(zip, page);
-    let bikeNumberPromise = bikeIndex.findNumberByZip(zip);
+    let bikeListPromise = bikeIndex.findBikeByLocation(zip, page);
+    let bikeNumberPromise = bikeIndex.findNumberByLocation(zip);
 
     bikeListPromise.then(function(response){
       let bike = JSON.parse(response);
@@ -26,7 +26,6 @@ $(document).ready(function(){
 
     }, function(error) {
       $('.showHumidity').text(`there was an error processing your request: ${error.message}`);
-
     });
 
     bikeNumberPromise.then(function(response){
@@ -36,7 +35,6 @@ $(document).ready(function(){
 
     }, function(error) {
       $('.showHumidity').text(`there was an error processing your request: ${error.message}`);
-
     });
 
   });

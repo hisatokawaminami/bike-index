@@ -1,8 +1,8 @@
 export class BikeIndex {
-  findBikeByZip(zip, page) {
+  findBikeByLocation(location, page) {
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
-      let url = `https://bikeindex.org:443/api/v3/search?page=${page}&per_page=25&location=${zip}&distance=10&stolenness=proximity`;
+      let url = `https://bikeindex.org:443/api/v3/search?page=${page}&per_page=25&location=${location}&distance=10&stolenness=proximity`;
       request.onload = function(){
         if (this.status === 200) {
           resolve(request.response);
@@ -15,10 +15,10 @@ export class BikeIndex {
     });
 
   }
-  findNumberByZip(zip) {
+  findNumberByLocation(location) {
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
-      let url = `https://bikeindex.org:443/api/v3/search/count?location=${zip}&distance=10&stolenness=proximity`;
+      let url = `https://bikeindex.org:443/api/v3/search/count?location=${location}&distance=10&stolenness=proximity`;
       request.onload = function(){
         if (this.status === 200) {
           resolve(request.response);
