@@ -1,4 +1,4 @@
-# Super Galactic Age Calculator
+# Bike Index
 
 This app determines a user’s age based on a planet’s solar years.
 
