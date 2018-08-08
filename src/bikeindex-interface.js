@@ -5,9 +5,6 @@ import { BikeIndex } from './../src/bikeindex.js'
 
 $(document).ready(function(){
     let page = 1;
-  $('#nextPage').click(function(){
-    page++;
-    console.log(page)
 
   $('#bikeLocation').click(function(){
 
@@ -24,11 +21,18 @@ $(document).ready(function(){
         $('.showBike').append("<li>" + bike.bikes[i].title + "<br>" + `<img src="${bike.bikes[i].thumb}"/>`+ "</li>" );
         foundCounter ++;
       }
-      $('.showCounter').text(foundCounter + ' found')
+      $('.showCounter').text(foundCounter + ' showing')
     }, function(error) {
       $('.showHumidity').text(`there was an error processing your request: ${error.message}`);
 
   });
+
+  $('#nextPage').click(function(){
+    page = page +(1/page);
+    console.log(page)
+    $('.showBike').text("");
+    $('#bikeLocation').click();
+
     });
   });
 });
