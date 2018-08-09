@@ -8,11 +8,10 @@ $(document).ready(function(){
 
   $('#bikeLocation').click(function(){
     // let page = 1;
-    let color = $('#color').val();
 
     let location = $('#location').val();
     let bikeIndex = new BikeIndex();
-    let bikeListPromise = bikeIndex.findBikeByLocation(location, page, color);
+    let bikeListPromise = bikeIndex.findBikeByLocation(location, page);
     let bikeNumberPromise = bikeIndex.findNumberByLocation(location);
 
     bikeListPromise.then(function(response){
